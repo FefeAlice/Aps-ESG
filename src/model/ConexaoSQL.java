@@ -7,6 +7,8 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,11 +27,13 @@ public class ConexaoSQL {
             if (conn == null){
                 conn = DriverManager.getConnection(url, user, password);
                 return conn;
+                
             }else{
                 return conn;
             }
         }catch(SQLException e){
-            System.out.println("Erro ao conectar" + e.getMessage());
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Erro ao conectar: \n" + e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
             return null;
         }
     }
