@@ -3,68 +3,55 @@ package model;
 
 public class Veiculo {
 
-  private int idVeiculo;
+  private int idVeic;
   private String marca;
   private String modelo;
-  private String tipo;
-  private int qntdVeiculo;
-  private float combustivel;
+  private int idComb;
+  private int autonomia;
 
   public Veiculo() {
   };
 
-  public void setIdVeiculo(int newVar) {
-    idVeiculo = newVar;
-  }
+    public int getIdVeic() {
+        return idVeic;
+    }
 
-  public int getIdVeiculo() {
-    return idVeiculo;
-  }
+    public void setIdVeic(int idVeic) {
+        this.idVeic = idVeic;
+    }
 
-  public void setMarca(String newVar) {
-    marca = newVar;
-  }
+    public String getMarca() {
+        return marca;
+    }
 
-  public String getMarca() {
-    return marca;
-  }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
 
-  public void setModelo(String newVar) {
-    modelo = newVar;
-  }
+    public String getModelo() {
+        return modelo;
+    }
 
-  public String getModelo() {
-    return modelo;
-  }
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
-  public void setTipo(String newVar) {
-    tipo = newVar;
-  }
+    public int getIdComb() {
+        return idComb;
+    }
 
-  public String getTipo() {
-    return tipo;
-  }
+    public void setIdComb(int idComb) {
+        this.idComb = idComb;
+    }
 
-  public void setQntdVeiculo(int newVar) {
-    qntdVeiculo = newVar;
-  }
+    public int getAutonomia() {
+        return autonomia;
+    }
 
-  public int getQntdVeiculo() {
-    return qntdVeiculo;
-  }
+    public void setAutonomia(int autonomia) {
+        this.autonomia = autonomia;
+    }
 
-  public void setCombustivel(float newVar) {
-    combustivel = newVar;
-  }
-
-  public float getCombustivel() {
-    return combustivel;
-  }
-
-  public void get() {
-  }
-
-  public void set() {
-  }
+    
 
 }
