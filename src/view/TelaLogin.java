@@ -19,97 +19,14 @@ import model.Funcionario;
  * @author iriam
  */
 public class TelaLogin extends javax.swing.JFrame {
-
-    public JTextField getCpfCad() {
-        return cpfCad;
-    }
-
-    public void setCpfCad(JTextField cpfCad) {
-        this.cpfCad = cpfCad;
-    }
-
-    public JTextField getTelefoneCad() {
-        return telefoneCad;
-    }
-
-    public void setTelefoneCad(JPasswordField telefoneCad) {
-        this.telefoneCad = telefoneCad;
-    }
-
-    public JTextField getIdFuncCad() {
-        return idFuncCad;
-    }
-
-    public void setIdFuncCad(JTextField idFuncCad) {
-        this.idFuncCad = idFuncCad;
-    }
-
-    public JTextField getCpfLogin() {
-        return cpfLogin;
-    }
-
-    public void setCpfLogin(JTextField cpfLogin) {
-        this.cpfLogin = cpfLogin;
-    }
-
-    public JTextField getEmailCad() {
-        return emailCad;
-    }
-
-    public void setEmailCad(JTextField emailCad) {
-        this.emailCad = emailCad;
-    }
-
-    public JTextField getEmpresaCad() {
-        return empresaCad;
-    }
-
-    public void setEmpresaCad(JTextField empresaCad) {
-        this.empresaCad = empresaCad;
-    }
-
-    public JTextField getNomeCad() {
-        return nomeCad;
-    }
-
-    public void setNomeCad(JTextField nomeCad) {
-        this.nomeCad = nomeCad;
-    }
-
-    public JPasswordField getSenhaCad() {
-        return senhaCad;
-    }
-
-    public void setSenhaCad(JPasswordField senhaCad) {
-        this.senhaCad = senhaCad;
-    }
-
-    public JPasswordField getSenhaLogin() {
-        return senhaLogin;
-    }
-
-    public void setSenhaLogin(JPasswordField senhaLogin) {
-        this.senhaLogin = senhaLogin;
-    }
-
-    public JTextField getSobrenomeCad() {
-        return sobrenomeCad;
-    }
-
-    public void setSobrenomeCad(JTextField sobrenomeCad) {
-        this.sobrenomeCad = sobrenomeCad;
-    }
-
-    
-    static Scanner scan = new Scanner(System.in);
     
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
-        ConexaoSQL conn = new ConexaoSQL();
-        conn.getConexao();
+        ConexaoSQL c = new ConexaoSQL();
+        c.getConexao();
     }
 
     /**
@@ -129,33 +46,17 @@ public class TelaLogin extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        Green_Track = new javax.swing.JInternalFrame();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        cpfLogin = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        senhaLogin = new javax.swing.JPasswordField();
-        jLabel8 = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        empresaCad = new javax.swing.JTextField();
-        emailCad = new javax.swing.JTextField();
-        cpfCad = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        senhaCad = new javax.swing.JPasswordField();
-        btnCadastro = new javax.swing.JButton();
-        sobrenomeCad = new javax.swing.JTextField();
-        nomeCad = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        idFuncCad = new javax.swing.JTextField();
-        telefoneCad = new javax.swing.JTextField();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -194,311 +95,88 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Green_Track.setVisible(true);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
-        cpfLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpfLoginActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("Senha:");
-
-        senhaLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaLoginActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("CPF:");
-
-        btnLogin.setText("Entrar");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cpfLogin, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(senhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(55, Short.MAX_VALUE))
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(cpfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(senhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnLogin)
-                .addContainerGap(161, Short.MAX_VALUE))
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 441, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jMenu7.setText("Usuário");
 
-        jTabbedPane1.addTab("Login", jPanel3);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setText("Email:");
-
-        jLabel2.setText("CPF:");
-
-        jLabel3.setText("id Empresa:");
-
-        emailCad.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem5.setText("Cadastro");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailCadActionPerformed(evt);
+                jMenuItem5ActionPerformed(evt);
             }
         });
+        jMenu7.add(jMenuItem5);
 
-        cpfCad.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem6.setText("Login");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpfCadActionPerformed(evt);
+                jMenuItem6ActionPerformed(evt);
             }
         });
+        jMenu7.add(jMenuItem6);
 
-        jLabel6.setText("Senha:");
+        jMenuBar2.add(jMenu7);
 
-        senhaCad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaCadActionPerformed(evt);
-            }
-        });
+        jMenu3.setText("Veículo");
 
-        btnCadastro.setText("Cadastrar");
-        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroActionPerformed(evt);
-            }
-        });
+        jMenuItem1.setText("Trocar");
+        jMenu3.add(jMenuItem1);
 
-        sobrenomeCad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sobrenomeCadActionPerformed(evt);
-            }
-        });
+        jMenuItem2.setText("Alterar dados do veículo");
+        jMenu3.add(jMenuItem2);
 
-        nomeCad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeCadActionPerformed(evt);
-            }
-        });
+        jMenuBar2.add(jMenu3);
 
-        jLabel9.setText("Sobrenome:");
+        jMenu4.setText("Metas");
 
-        jLabel10.setText("Nome:");
+        jMenuItem3.setText("Novo relatório");
+        jMenu4.add(jMenuItem3);
 
-        jLabel11.setText("Telefone:");
+        jMenuItem4.setText("Ultimos 12 meses");
+        jMenu4.add(jMenuItem4);
 
-        jLabel4.setText("id Func:");
+        jMenuBar2.add(jMenu4);
 
-        telefoneCad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telefoneCadActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(cpfCad, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emailCad, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(senhaCad)
-                    .addComponent(sobrenomeCad)
-                    .addComponent(nomeCad, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(empresaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idFuncCad, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telefoneCad, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(18, 18, 18))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(empresaCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(idFuncCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sobrenomeCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpfCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefoneCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senhaCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(btnCadastro)
-                .addGap(27, 27, 27))
-        );
-
-        jTabbedPane1.addTab("Cadastro", jPanel2);
-
-        javax.swing.GroupLayout Green_TrackLayout = new javax.swing.GroupLayout(Green_Track.getContentPane());
-        Green_Track.getContentPane().setLayout(Green_TrackLayout);
-        Green_TrackLayout.setHorizontalGroup(
-            Green_TrackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
-        Green_TrackLayout.setVerticalGroup(
-            Green_TrackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Green_Track)
+            .addComponent(jDesktopPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Green_Track)
+            .addComponent(jDesktopPane2)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        
-        String nomePessoa = nomeCad.getText();
-        String sobrenomePessoa = sobrenomeCad.getText();
-        String emailPessoa = emailCad.getText();
-        String cpfPessoa = cpfCad.getText();
-        int idEmpresa = Integer.parseInt(empresaCad.getText());
-        int idFunc = Integer.parseInt(idFuncCad.getText());
-        String senhaPessoa = senhaCad.getText();
-        
-        Cadastro cadastro = new Cadastro();
-        cadastro.setNome(nomePessoa);
-        cadastro.setSobrenome(sobrenomePessoa);
-        cadastro.setEmail(emailPessoa);
-        cadastro.setCpf(cpfPessoa);
-        cadastro.setIdEmpresa(idEmpresa);
-        cadastro.setIdFunc(idFunc);
-        cadastro.setSenha(senhaPessoa);
-        
-        CadastroDAO cadastroDAO = new CadastroDAO();
-        cadastroDAO.cadastrarFuncionario(cadastro);
-        /*ps.setString(1, funcionario.getNomePessoa());
-            ps.setString(2, funcionario.getSobrenomePessoa());
-            ps.setString(3, funcionario.getCpf());
-            ps.setString(4, funcionario.getSenha());
-            ps.setInt(5, funcionario.getIdEmpresa());*/
-    }//GEN-LAST:event_btnCadastroActionPerformed
+        CadastroView telaCad = new CadastroView();
+        jDesktopPane2.add(telaCad);
+        telaCad.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void senhaCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaCadActionPerformed
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_senhaCadActionPerformed
-
-    private void cpfCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfCadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfCadActionPerformed
-
-    private void emailCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailCadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailCadActionPerformed
+        Login telaLogin = new Login();
+        jDesktopPane2.add(telaLogin);
+        telaLogin.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
                                          
-        // TODO add your handling code here:
-                                           
-
-    private void senhaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senhaLoginActionPerformed
-
-    private void sobrenomeCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobrenomeCadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sobrenomeCadActionPerformed
-
-    private void nomeCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeCadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeCadActionPerformed
-
-    private void cpfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfLoginActionPerformed
-
-    private void telefoneCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneCadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_telefoneCadActionPerformed
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnLoginActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -536,40 +214,24 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JInternalFrame Green_Track;
-    private javax.swing.JButton btnCadastro;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JTextField cpfCad;
-    private javax.swing.JTextField cpfLogin;
-    private javax.swing.JTextField emailCad;
-    private javax.swing.JTextField empresaCad;
-    private javax.swing.JTextField idFuncCad;
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField nomeCad;
-    private javax.swing.JPasswordField senhaCad;
-    private javax.swing.JPasswordField senhaLogin;
-    private javax.swing.JTextField sobrenomeCad;
-    private javax.swing.JTextField telefoneCad;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,6 +17,8 @@ import model.ConexaoSQL;
  *
  * @author iriam
  */
+
+//Codigo para enviar os dados dos funcionarios ao BD
 public class CadastroDAO {
     private ConexaoSQL conexao;
     private Connection conn;
@@ -26,29 +28,23 @@ public class CadastroDAO {
         this.conn = this.conexao.getConexao();
     }
     public void cadastrarFuncionario(Cadastro cadastro){
-
-        try{
-            PreparedStatement ps = this.conn.prepareStatement("");
-            String sql1 = "INSERT INTO funcionario(nome, sobrenome, cpf_cnpj, senha, id_empresa, id_func) VALUES" + "(?, ?, ?, ?, ?)";
-            String sql2 = "INSERT INTO telefone(id_func, telefone) VALUES" + "(?, ?)";
-            String sql3 = "INSERT INTO telefone(id_func, email) VALUES" + "(?, ?)";
+        
+        //Inserindo dados na tabela funcionario
+        
+        String sql = "INSERT INTO funcionario(nome, sobrenome, cpf_cnpj, senha, id_empresa, id_func) VALUES" 
+                    + "(?, ?, ?, ?, ?, ?)";
             
-            ps = ConexaoSQL.getConexao().prepareStatement(sql1);
+        try{
+            PreparedStatement ps = this.conn.prepareStatement(sql);
+            
+            
+            ps = ConexaoSQL.getConexao().prepareStatement(sql);
             ps.setString(1, cadastro.getNome());
             ps.setString(2, cadastro.getSobrenome());
             ps.setString(3, cadastro.getCpf());
             ps.setString(4, cadastro.getSenha());
             ps.setInt(5, cadastro.getIdEmpresa());
-            ps.setInt(6, cadastro.getIdFunc());
-            
-            ps = ConexaoSQL.getConexao().prepareStatement(sql2);
-            ps.setInt(1, cadastro.getIdFunc());
-            ps.setString(2, cadastro.getTelefone());
-            
-            ps = ConexaoSQL.getConexao().prepareStatement(sql3);
-            ps.setInt(1, cadastro.getIdFunc());
-            ps.setString(2, cadastro.getEmail());
-            
+            ps.setInt(6, cadastro.getIdFunc());           
 
             ps.execute();
             ps.close();
@@ -59,6 +55,48 @@ public class CadastroDAO {
             e.printStackTrace();
         }
         
+        //Inserindo dados do email do funcionario cadastrado
+        
+        String sql1 = "INSERT INTO email(id_func, email) VALUES" 
+                    + "(?, ?)";
+        
+        try{
+            PreparedStatement ps = this.conn.prepareStatement(sql1);
+            
+            ps = ConexaoSQL.getConexao().prepareStatement(sql1);
+            ps.setInt(1, cadastro.getIdFunc());
+            ps.setString(2, cadastro.getEmail());
+            
+            ps.execute();
+            ps.close();
+
+        }catch (SQLException e) {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Erro ao tentar se cadastrar: \n" + e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
+            e.printStackTrace();
+        }
+        
+        //Inserindo dados de telefone do funcionario cadastrado
+        
+        String sql2 = "INSERT INTO telefone(id_func, telefone) VALUES" 
+                    + "(?, ?)";
+            
+        try{
+            PreparedStatement ps = this.conn.prepareStatement(sql2);
+            
+            ps = ConexaoSQL.getConexao().prepareStatement(sql2);
+            ps.setInt(1, cadastro.getIdFunc());
+            ps.setString(2, cadastro.getTelefone());  
+            System.out.println();
+
+            ps.execute();
+            ps.close();
+
+        }catch (SQLException e) {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Erro ao tentar se cadastrar: \n" + e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
+            e.printStackTrace();
+        }
         /*(Funcionario funcionario, String getNomeCad, String getSobrenomePessoaCad, String getCpfCad, String getSenhaCad){
         
         Funcionario f = new Funcionario();
@@ -81,6 +119,8 @@ public class CadastroDAO {
             rs.first();
             cadastro.setCpf(cpf);
             cadastro.setSenha(rs.getString("senha"));
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Bem vindo!");
             return cadastro;
             
         }catch (Exception e){
