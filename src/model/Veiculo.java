@@ -6,7 +6,7 @@ public class Veiculo {
   private int idVeic;
   private String marca;
   private String modelo;
-  private int idComb;
+  private String idComb;
   private int autonomia;
 
   public Veiculo() {
@@ -36,11 +36,11 @@ public class Veiculo {
         this.modelo = modelo;
     }
 
-    public int getIdComb() {
+    public String getIdComb() {
         return idComb;
     }
 
-    public void setIdComb(int idComb) {
+    public void setIdComb(String idComb) {
         this.idComb = idComb;
     }
 

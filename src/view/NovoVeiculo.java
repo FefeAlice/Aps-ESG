@@ -4,6 +4,9 @@
  */
 package view;
 
+import DAO.VeiculoDAO;
+import model.Veiculo;
+
 /**
  *
  * @author iriam
@@ -36,9 +39,11 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         modeloVeic = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRegVeic = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         combustivelVeic = new javax.swing.JList<>();
+        jLabel5 = new javax.swing.JLabel();
+        autonomia = new javax.swing.JTextField();
 
         setBorder(null);
         setClosable(true);
@@ -57,19 +62,28 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Combustível:");
 
-        jButton1.setText("Registrar Veículo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegVeic.setText("Registrar Veículo");
+        btnRegVeic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegVeicActionPerformed(evt);
             }
         });
 
+        combustivelVeic.setBorder(null);
         combustivelVeic.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Gasolina", "Etanol", "Diesel", "Gás natural" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane5.setViewportView(combustivelVeic);
+
+        jLabel5.setText("Autonomia:");
+
+        autonomia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autonomiaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,16 +100,18 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                            .addComponent(jScrollPane5))))
+                            .addComponent(jScrollPane5)
+                            .addComponent(autonomia))))
                 .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegVeic, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(148, 148, 148))
         );
         layout.setVerticalGroup(
@@ -112,33 +128,65 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4))
-                .addGap(109, 109, 109)
-                .addComponent(jButton1)
-                .addContainerGap(160, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(autonomia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(78, 78, 78)
+                .addComponent(btnRegVeic)
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegVeicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegVeicActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+      
+        int idVeiculo = Integer.parseInt(idVeic.getText());
+        String marcaVeiculo = marcaVeic.getText();
+        String modeloVeiculo = modeloVeic.getText();
+        String idComb = combustivelVeic.getSelectedValue();
+        int veicOnomia = Integer.parseInt(autonomia.getText());
+        
+        Veiculo veiculo = new Veiculo();
+        veiculo.setIdVeic(idVeiculo);
+        veiculo.setMarca(marcaVeiculo);
+        veiculo.setModelo(modeloVeiculo);
+        veiculo.setIdComb(idComb);
+        veiculo.setAutonomia(veicOnomia);
+        
+        System.out.println("id do veiculo:");
+        System.out.println("marca");
+        System.out.println("modelo");
+        System.out.println("combustivel");
+        System.out.println("autonomia");
+        
+        VeiculoDAO veiculoDAO = new VeiculoDAO();
+        veiculoDAO.cadastrarVeiculo(veiculo);
+    }//GEN-LAST:event_btnRegVeicActionPerformed
+
+    private void autonomiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autonomiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_autonomiaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField autonomia;
+    private javax.swing.JButton btnRegVeic;
     private javax.swing.JList<String> combustivelVeic;
     private javax.swing.JTextPane idVeic;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

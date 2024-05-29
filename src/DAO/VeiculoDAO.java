@@ -2,6 +2,8 @@ package DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import model.ConexaoSQL;
 import model.Veiculo;
@@ -17,13 +19,15 @@ public class VeiculoDAO {
             ps.setInt(1, veiculo.getIdVeic());
             ps.setString(2, veiculo.getMarca());
             ps.setString(3, veiculo.getModelo());
-            ps.setInt(4, veiculo.getIdComb());
+            ps.setString(4, veiculo.getIdComb());
             ps.setInt(5, veiculo.getAutonomia());
 
             ps.execute();
             ps.close();
 
         }catch (SQLException e) {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Erro ao cadastrar veiculo: \n" + e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
             e.printStackTrace();
         }
     }
