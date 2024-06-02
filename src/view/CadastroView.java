@@ -6,7 +6,7 @@ package view;
 
 
 import DAO.CadastroDAO;
-import beans.Cadastro;
+import beans.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -24,7 +24,7 @@ import model.Funcionario;
 public class CadastroView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Cadastro
+     * Creates new form Usuario
      */
     public CadastroView() {
         initComponents();
@@ -384,7 +384,7 @@ public class CadastroView extends javax.swing.JInternalFrame {
         int idFunc = Integer.parseInt(idFuncCad.getText());
         String senhaPessoa = senhaCad.getText();
 
-        Cadastro cadastro = new Cadastro();
+        Usuario cadastro = new Usuario();
         cadastro.setNome(nomePessoa);
         cadastro.setSobrenome(sobrenomePessoa);
         cadastro.setEmail(emailPessoa);
@@ -404,7 +404,7 @@ public class CadastroView extends javax.swing.JInternalFrame {
         System.out.println("telefone: " + telefonePessoa);
 
         CadastroDAO cadastroDAO = new CadastroDAO();
-        cadastroDAO.cadastrarFuncionario(cadastro);
+        cadastroDAO.cadastrar(cadastro);
 
     }//GEN-LAST:event_btnCadastroActionPerformed
 

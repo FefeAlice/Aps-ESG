@@ -4,7 +4,7 @@
  */
 package DAO;
 
-import beans.Cadastro;
+import beans.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -27,7 +27,7 @@ public class CadastroDAO {
         this.conexao = new ConexaoSQL();
         this.conn = this.conexao.getConexao();
     }
-    public void cadastrarFuncionario(Cadastro cadastro){
+    public void cadastrar(Usuario cadastro){
         
         //Inserindo dados na tabela funcionario
         
@@ -109,24 +109,5 @@ public class CadastroDAO {
         */
     }
     
-    public Cadastro getCadastro(String cpf){
-        String sql = "SELECT cpf_cnpj, senha FROM funcionario WHERE cpf = ?";
-        try{
-            PreparedStatement ps = this.conn.prepareStatement(sql);
-            ps.setString(1, cpf);
-            ResultSet rs = ps.executeQuery();
-            Cadastro cadastro = new Cadastro();
-            rs.first();
-            cadastro.setCpf(cpf);
-            cadastro.setSenha(rs.getString("senha"));
-            JFrame frame = new JFrame();
-            JOptionPane.showMessageDialog(frame, "Bem vindo!");
-            return cadastro;
-            
-        }catch (Exception e){
-            JFrame frame = new JFrame();
-            JOptionPane.showMessageDialog(frame, "Erro ao tentar logar: \n" + e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
-            return null;
-        }
-    }
+    
 }

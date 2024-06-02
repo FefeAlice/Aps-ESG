@@ -5,7 +5,7 @@
 package view;
 
 import DAO.CadastroDAO;
-import beans.Cadastro;
+import beans.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -228,14 +228,34 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        // Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaLogin().setVisible(true);
-                
+                /*try{
+                    Usuario user = new Usuario();
+                    user.getIdFunc();
+                    user.setIdFunc(0);
+                    user.idEmpresa = CadastroDAO.logar();
+                    /*String userNome = user.getNome();
+                    String userCpf = user.getCpf();
+                    String userEmail = user.getEmail();
+                    int userIdEmp = user.getIdEmpresa();
+                    int userIdFunc = user.getIdFunc();
+                    String userSobNm = user.getSobrenome();
+                    String userTel = user.getTelefone();
+                    
+                }catch (Exception e){
+                    e.printStackTrace ();
+                }*/
             }
         });
     }
+    /*public void run (String[] args) throws Exception{
+    // put your code here
+        
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane2;

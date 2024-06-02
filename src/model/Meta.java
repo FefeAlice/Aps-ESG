@@ -1,32 +1,72 @@
 package model;
 
 
+
+
 public class Meta {
 
-  private int mesAno;
-  private float meta;
+    private float kmSem;
+    private int entregaSem;
+    private int semana;
+    private int mes;
+    private int ano;
+    private float resultadoSem;
+    private float metaSem;
 
-  public Meta() {
-  };
+    public float getKmSem() {
+        return kmSem;
+    }
 
-  public void setMesAno(int newVar) {
-    mesAno = newVar;
-  }
+    public void setKmSem(float kmSem) {
+        this.kmSem = kmSem;
+    }
 
-  public int getMesAno() {
-    return mesAno;
-  }
+    public int getEntregaSem() {
+        return entregaSem;
+    }
 
-  public void setMeta(float newVar) {
-    meta = newVar;
-  }
+    public void setEntregaSem(int entregaSem) {
+        this.entregaSem = entregaSem;
+    }
 
-  public float getMeta() {
-    return meta;
-  }
+    public int getSemana() {
+        return semana;
+    }
 
-  public float metaCons() {
-    return mesAno;
-  }
+    public void setSemana(int semana) {
+        this.semana = semana;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public float getMetaSem() {
+        return metaSem;
+    }
+
+    public void setMetaSem(float metaSem) {
+        this.metaSem = metaSem;
+    }
+
+    public float getResultadoSem() {
+        return resultadoSem;
+    }
+
+    public void setResultadoSem(float resultadoSem) {
+        this.resultadoSem = resultadoSem;
+    }
 
 }

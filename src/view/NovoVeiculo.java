@@ -6,13 +6,15 @@ package view;
 
 import DAO.VeiculoDAO;
 import model.Veiculo;
+import DAO.CadastroDAO;
+import beans.Usuario;
 
 /**
  *
  * @author iriam
  */
 public class NovoVeiculo extends javax.swing.JInternalFrame {
-
+    
     /**
      * Creates new form NovoVeiculo
      */
@@ -44,6 +46,8 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         combustivelVeic = new javax.swing.JList<>();
         jLabel5 = new javax.swing.JLabel();
         autonomia = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        idEmp = new javax.swing.JTextField();
 
         setBorder(null);
         setClosable(true);
@@ -79,9 +83,18 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Autonomia:");
 
+        autonomia.setText("km/L (apenas números)");
         autonomia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 autonomiaActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("id Empresa:");
+
+        idEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idEmpActionPerformed(evt);
             }
         });
 
@@ -101,13 +114,15 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                             .addComponent(jScrollPane5)
-                            .addComponent(autonomia))))
+                            .addComponent(autonomia)
+                            .addComponent(idEmp))))
                 .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -138,9 +153,13 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(autonomia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(78, 78, 78)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(idEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(35, 35, 35)
                 .addComponent(btnRegVeic)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,6 +173,7 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         String modeloVeiculo = modeloVeic.getText();
         String idComb = combustivelVeic.getSelectedValue();
         int veicOnomia = Integer.parseInt(autonomia.getText());
+        int idEmpresa = Integer.parseInt(idEmp.getText());
         
         Veiculo veiculo = new Veiculo();
         veiculo.setIdVeic(idVeiculo);
@@ -161,12 +181,15 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         veiculo.setModelo(modeloVeiculo);
         veiculo.setIdComb(idComb);
         veiculo.setAutonomia(veicOnomia);
+        veiculo.setIdEmpresa(idEmpresa);
         
-        System.out.println("id do veiculo:");
-        System.out.println("marca");
-        System.out.println("modelo");
-        System.out.println("combustivel");
-        System.out.println("autonomia");
+        
+        System.out.println("id do veiculo: " + idVeiculo);
+        System.out.println("marca: " + marcaVeiculo);
+        System.out.println("modelo: " + modeloVeiculo);
+        System.out.println("combustivel: " + idComb);
+        System.out.println("autonomia: " + veicOnomia);
+        System.out.println("id da empresa responsável:" + idEmpresa);
         
         VeiculoDAO veiculoDAO = new VeiculoDAO();
         veiculoDAO.cadastrarVeiculo(veiculo);
@@ -176,17 +199,23 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_autonomiaActionPerformed
 
+    private void idEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idEmpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idEmpActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField autonomia;
     private javax.swing.JButton btnRegVeic;
     private javax.swing.JList<String> combustivelVeic;
+    private javax.swing.JTextField idEmp;
     private javax.swing.JTextPane idVeic;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

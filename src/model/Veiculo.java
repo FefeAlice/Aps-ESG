@@ -7,10 +7,9 @@ public class Veiculo {
   private String marca;
   private String modelo;
   private String idComb;
+  private int idEmpresa;
   private int autonomia;
 
-  public Veiculo() {
-  };
 
     public int getIdVeic() {
         return idVeic;
@@ -52,6 +51,13 @@ public class Veiculo {
         this.autonomia = autonomia;
     }
 
+    public int getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
     
 
 }

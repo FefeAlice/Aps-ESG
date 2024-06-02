@@ -5,7 +5,8 @@
 package view;
 
 import DAO.CadastroDAO;
-import beans.Cadastro;
+import DAO.LoginDAO;
+import beans.Usuario;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -128,12 +129,20 @@ public class Login extends javax.swing.JInternalFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         String cpfLogin = this.cpfLogin.getText();
-        CadastroDAO cadastroDAO = new CadastroDAO();
-        Cadastro cadastro = cadastroDAO.getCadastro(cpfLogin);
-        if(cadastro == null){
-            JOptionPane.showMessageDialog(this, "CPF não encontrado");
+        String senhaLogin = this.senhaLogin.getText();
+        LoginDAO loginDAO = new LoginDAO();
+        Usuario login = loginDAO.logar(cpfLogin, senhaLogin);
+        if(login == null){
+            JOptionPane.showMessageDialog(this, "CPF ou senha incorretos");
         }else{
-            
+            JOptionPane.showMessageDialog(this, "Bem vindo!");
+            System.out.println("cpf: " + login.getCpf());
+            System.out.println("id da empresa: " + login.getIdEmpresa());
+            System.out.println("id do funcionario: " + login.getIdFunc());
+            System.out.println("email: " + login.getEmail());
+            System.out.println("nome: " + login.getNome());
+            System.out.println("sobrenome: " + login.getSobrenome());
+            System.out.println("telefone: " + login.getTelefone());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
