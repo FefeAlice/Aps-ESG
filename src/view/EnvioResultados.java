@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.ResultadosDAO;
 import model.Meta;
 
 /**
@@ -41,6 +42,10 @@ public class EnvioResultados extends javax.swing.JInternalFrame {
         mesSpin = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        idEmp = new javax.swing.JTextField();
+        idFunc = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         setBorder(null);
         setClosable(true);
@@ -76,6 +81,22 @@ public class EnvioResultados extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Ano:");
 
+        jLabel4.setText("Id da empresa:");
+
+        idEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idEmpActionPerformed(evt);
+            }
+        });
+
+        idFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idFuncActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Id de funcionário:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,22 +114,31 @@ public class EnvioResultados extends javax.swing.JInternalFrame {
                     .addComponent(nEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(idVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel5))
-                            .addComponent(semSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(mesSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(anoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(idEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(41, 41, 41)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8)
+                                .addComponent(idFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
+                                    .addComponent(jLabel5))
+                                .addComponent(semSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(mesSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel7)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(anoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,7 +156,7 @@ public class EnvioResultados extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(idVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
@@ -136,7 +166,17 @@ public class EnvioResultados extends javax.swing.JInternalFrame {
                     .addComponent(semSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(anoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mesSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(20, 20, 20))
         );
@@ -160,41 +200,48 @@ public class EnvioResultados extends javax.swing.JInternalFrame {
         int sem = Integer.parseInt(semSpin.getValue().toString());
         int mes = Integer.parseInt(mesSpin.getValue().toString());
         int ano = Integer.parseInt(anoSpin.getValue().toString());
+        int idEmpresa = Integer.parseInt(idEmp.getText());
+        int idFuncionario = Integer.parseInt(idFunc.getText());
 
         Meta meta = new Meta();
         meta.setKmSem(kmSem);
         meta.setEntregaSem(numEntregas);
-        /*meta.setIdFunc(DAO.CadastroDAO.logar());
-        meta.setIdEmp();*/
+        meta.setIdFunc(idFuncionario);
+        meta.setIdEmp(idEmpresa);
         meta.setSemana(sem);
         meta.setMes(mes);
         meta.setAno(ano);
-        /*meta.setResultadoSem(kmSem / );
+        meta.setIdVeic(idVeic);
+        
+        ResultadosDAO resultadosDAO = new ResultadosDAO();
+        resultadosDAO.enviarResultado(meta);
+        //meta.setResultadoSem(kmSem / );
 
-        System.out.println("nome: " + nomePessoa);
-        System.out.println("sobrenome: " + sobrenomePessoa);
-        System.out.println("email: " + emailPessoa);
-        System.out.println("cpf: " + cpfPessoa);
-        System.out.println("senha: " + senhaPessoa);
-        System.out.println("id empresa: " + idEmpresa);
-        System.out.println("id funcionario: " + idFunc);
-        System.out.println("telefone: " + telefonePessoa);
-
-        CadastroDAO cadastroDAO = new CadastroDAO();
-        cadastroDAO.cadastrarFuncionario(cadastro);*/
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void idEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idEmpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idEmpActionPerformed
+
+    private void idFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idFuncActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner anoSpin;
+    private javax.swing.JTextField idEmp;
+    private javax.swing.JTextField idFunc;
     private javax.swing.JTextField idVeiculo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField kmSemana;
     private javax.swing.JSpinner mesSpin;
     private javax.swing.JTextField nEntregas;

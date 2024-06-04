@@ -4,10 +4,8 @@
  */
 package view;
 
-import DAO.VeiculoDAO;
+import controller.VeiculoDAO;
 import model.Veiculo;
-import DAO.CadastroDAO;
-import beans.Usuario;
 
 /**
  *
@@ -47,7 +45,8 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         autonomia = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        idEmp = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        idEmp = new javax.swing.JTextPane();
 
         setBorder(null);
         setClosable(true);
@@ -90,13 +89,9 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel6.setText("id Empresa:");
+        jLabel6.setText("Id da empresa:");
 
-        idEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idEmpActionPerformed(evt);
-            }
-        });
+        jScrollPane4.setViewportView(idEmp);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,7 +100,7 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,16 +109,18 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                             .addComponent(jScrollPane5)
-                            .addComponent(autonomia)
-                            .addComponent(idEmp))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                            .addComponent(autonomia)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRegVeic, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,13 +129,17 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
@@ -153,13 +154,9 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(autonomia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(idEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(35, 35, 35)
+                .addGap(69, 69, 69)
                 .addComponent(btnRegVeic)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,20 +165,20 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
     private void btnRegVeicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegVeicActionPerformed
         // TODO add your handling code here:
       
+        int idEmpresa = Integer.parseInt(idEmp.getText());
         int idVeiculo = Integer.parseInt(idVeic.getText());
         String marcaVeiculo = marcaVeic.getText();
         String modeloVeiculo = modeloVeic.getText();
         String idComb = combustivelVeic.getSelectedValue();
         int veicOnomia = Integer.parseInt(autonomia.getText());
-        int idEmpresa = Integer.parseInt(idEmp.getText());
         
         Veiculo veiculo = new Veiculo();
+        veiculo.setIdEmpresa(idEmpresa);
         veiculo.setIdVeic(idVeiculo);
         veiculo.setMarca(marcaVeiculo);
         veiculo.setModelo(modeloVeiculo);
         veiculo.setIdComb(idComb);
         veiculo.setAutonomia(veicOnomia);
-        veiculo.setIdEmpresa(idEmpresa);
         
         
         System.out.println("id do veiculo: " + idVeiculo);
@@ -189,7 +186,8 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         System.out.println("modelo: " + modeloVeiculo);
         System.out.println("combustivel: " + idComb);
         System.out.println("autonomia: " + veicOnomia);
-        System.out.println("id da empresa responsável:" + idEmpresa);
+        System.out.println("id da empresa responsável:" + idEmp);
+       
         
         VeiculoDAO veiculoDAO = new VeiculoDAO();
         veiculoDAO.cadastrarVeiculo(veiculo);
@@ -199,16 +197,12 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_autonomiaActionPerformed
 
-    private void idEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idEmpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idEmpActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField autonomia;
     private javax.swing.JButton btnRegVeic;
     private javax.swing.JList<String> combustivelVeic;
-    private javax.swing.JTextField idEmp;
+    private javax.swing.JTextPane idEmp;
     private javax.swing.JTextPane idVeic;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -219,6 +213,7 @@ public class NovoVeiculo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextPane marcaVeic;
     private javax.swing.JTextPane modeloVeic;

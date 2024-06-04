@@ -4,16 +4,7 @@
  */
 package view;
 
-import DAO.CadastroDAO;
-import beans.Usuario;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.Scanner;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import model.ConexaoSQL;
-import model.Funcionario;
-
 /**
  *
  * @author iriam
@@ -41,14 +32,12 @@ public class TelaLogin extends javax.swing.JFrame {
         jDesktopPane2 = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,7 +54,15 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jMenu7.setText("Usuário");
 
-        jMenuItem5.setText("Cadastro");
+        jMenuItem1.setText("Veiculo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem1);
+
+        jMenuItem5.setText("Funcionário");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -73,40 +70,7 @@ public class TelaLogin extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem5);
 
-        jMenuItem6.setText("Login");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem6);
-
         jMenuBar2.add(jMenu7);
-
-        jMenu3.setText("Veículo");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem1.setText("Trocar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem1);
-
-        jMenuItem2.setText("Alterar dados do veículo");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem2);
-
-        jMenuBar2.add(jMenu3);
 
         jMenu4.setText("Metas");
         jMenu4.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +94,9 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         jMenu4.add(jMenuItem4);
+
+        jMenuItem2.setText("Utimas 12 semanas");
+        jMenu4.add(jMenuItem2);
 
         jMenuBar2.add(jMenu4);
 
@@ -156,13 +123,6 @@ public class TelaLogin extends javax.swing.JFrame {
         telaCad.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-        Login telaLogin = new Login();
-        jDesktopPane2.add(telaLogin);
-        telaLogin.setVisible(true);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         NovoVeiculo telaNovoVeic = new NovoVeiculo();
@@ -180,25 +140,12 @@ public class TelaLogin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jMenu3ActionPerformed
-
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
         EnvioResultados telaEnvRes = new EnvioResultados();
         jDesktopPane2.add(telaEnvRes);
         telaEnvRes.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        AlterarDadosVeic telaAltVeic = new AlterarDadosVeic();
-        jDesktopPane2.add(telaAltVeic);
-        telaAltVeic.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
                                          
     /**
@@ -259,7 +206,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
@@ -268,6 +214,5 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }

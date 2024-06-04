@@ -5,18 +5,15 @@
 package view;
 
 
-import DAO.CadastroDAO;
-import beans.Usuario;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import controller.CadastroDAO;
+import model.Usuario;
 import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import model.ConexaoSQL;
-import model.Funcionario;
+
 /**
  *
  * @author iriam
