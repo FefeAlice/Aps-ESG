@@ -52,7 +52,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGap(0, 441, Short.MAX_VALUE)
         );
 
-        jMenu7.setText("Usuário");
+        jMenu7.setText("Cadastrar");
 
         jMenuItem1.setText("Veiculo");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {

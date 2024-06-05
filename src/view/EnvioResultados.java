@@ -5,6 +5,9 @@
 package view;
 
 import controller.ResultadosDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Meta;
 
 /**
@@ -214,8 +217,12 @@ public class EnvioResultados extends javax.swing.JInternalFrame {
         meta.setIdVeic(idVeic);
         
         ResultadosDAO resultadosDAO = new ResultadosDAO();
-        resultadosDAO.enviarResultado(meta);
-        //meta.setResultadoSem(kmSem / );
+        try {
+            resultadosDAO.enviarResultado(meta, idVeic);
+            //meta.setResultadoSem(kmSem / );
+        } catch (SQLException ex) {
+            Logger.getLogger(EnvioResultados.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
