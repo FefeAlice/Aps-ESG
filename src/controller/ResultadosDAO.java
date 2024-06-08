@@ -93,7 +93,7 @@ public class ResultadosDAO {
             ps.setInt(1, resultado.getIdEmp());
             ps.setInt(2, resultado.getIdFunc());
             ps.setFloat(3, resultado.getMetaSem());
-            resultado.setResultadoSem((resultado.getKmSem()/veic.getAutonomia())*getEmissao());
+            resultado.setResultadoSem((resultado.getKmSem()/veic.getAutonomia())*getEmissao()/resultado.getEntregaSem());
             ps.setFloat(4, resultado.getResultadoSem());
             ps.setInt(5, resultado.getSemana());
             ps.setInt(6, resultado.getMes());

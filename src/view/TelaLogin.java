@@ -5,6 +5,8 @@
 package view;
 
 import model.ConexaoSQL;
+import org.jfree.data.category.DefaultCategoryDataset;
+import view.Graficos;
 /**
  *
  * @author iriam
@@ -138,6 +140,19 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         
+        final String titulo = "USUÁRIOS E PAIXÕES";
+        final String quantidadeUsuarios = "QUANTIDADE DE USUÁRIO";
+        
+        DefaultCategoryDataset datasetBarras = new DefaultCategoryDataset();
+        datasetBarras.addValue(2000, "Java 1.5", quantidadeUsuarios);
+        datasetBarras.addValue(8000, "Java 1.6", quantidadeUsuarios);
+        datasetBarras.addValue(12000, "Java 1.7", quantidadeUsuarios);
+        datasetBarras.addValue(20000, "Java 1.8", quantidadeUsuarios);
+        
+        Graficos graficoBarra = new Graficos(titulo, "", quantidadeUsuarios, datasetBarras);
+        graficoBarra.exibirGraficoEmFrame(800, 640);
+        
+    }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
